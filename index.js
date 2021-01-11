@@ -23,7 +23,7 @@ class SegmentControl extends Component {
       inputRange: [0, (numberOfSegments - 1) * containerWidth],
       outputRange: [
         0,
-        ((numberOfSegments - 1) * containerWidth) / numberOfSegments
+        (numberOfSegments - 1) * containerWidth / numberOfSegments
       ]
     });
 
@@ -65,7 +65,7 @@ class SegmentControl extends Component {
             {segments.map((segment, index) => {
               return (
                 <View style={{ width: containerWidth }} key={index}>
-                  {React.createElement(segment.view, segment.viewProps)}
+                  {segment.view(segment.viewProps)}
                 </View>
               );
             })}
@@ -115,8 +115,8 @@ class SegmentControl extends Component {
 
   handleOnScroll = x => {
     const mover = Animated.event([
-      { nativeEvent: { contentOffset: { x: this.state.scrollX } } }
-    ]);
+      { nativeEvent: { contentOffset: { x: this.state.scrollX } }, }
+    ], {useNativeDriver: false});
     mover(x);
   };
 }
