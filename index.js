@@ -126,10 +126,6 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "white",
     borderRadius: 6,
-    shadowColor: "black",
-    shadowOffset: { height: 4, width: 0 },
-    shadowOpacity: 0.1,
-    elevation: 3
   },
   separatorStyle: {
     height: 1,
